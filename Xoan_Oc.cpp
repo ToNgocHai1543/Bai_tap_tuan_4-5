@@ -1,55 +1,37 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-const int N = 1e3 + 1;
-
-int a[N][N], b[N][N];
-
 int main()
 {
-    int m, n;
-    cin >> m >> n;
-    int x1, x2, y1, y2;
-    x1 = 1, x2 = m;
-    y1 = 1, y2 = n;
-    int cnt = 1;
-    while(x1 < x2)
-    {
-        for(int i = y1; i <= y2; i++)
-        {
-            a[x1][i] = cnt;
+    int r , c; cin >> r >> c;
+    int a[r][c]; memset(a, 0 , sizeof a);
+    int cnt = 0;
+    int r1 = 0, r2 = r , c1 = 0, c2 = c;
+    while (cnt < r * c) {
+        for (int i = c1; i < c2; i++){
             cnt++;
+            a[r1][i] = cnt;
         }
-        x1++;
-
-        for(int i = x1; i <= x2; i++)
-        {
-            a[i][y2] = cnt;
+        r1++;
+        for (int i = r1; i < r2; i++) {
             cnt++;
+            a[i][c2 - 1] = cnt;
         }
-        y2--;
-
-        for(int i = y2; i >= y1; i--)
-        {
-            a[x2][i] = cnt;
+        c2--;
+        for (int i = c2 - 1; i >= c1; i--) {
             cnt++;
+            a[r2 - 1][i]  = cnt;
         }
-        x2--;
-
-        for(int i = x2; i >= x1; i--)
-        {
-            a[i][y1] = cnt;
+        r2--;
+        for (int i = r2 - 1; i >= r1; i--) {
             cnt++;
+            a[i][c1] = cnt;
         }
-        y1++;
+        c1++;
     }
-
-    for(int i = 1; i <= m; i++)
-    {
-        for(int j = 1; j <= n; j++)
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
             cout << setw(3) << a[i][j] << " ";
+        }
         cout << endl;
     }
-
-    return 0;
 }
