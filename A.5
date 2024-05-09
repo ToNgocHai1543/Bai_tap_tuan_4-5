@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    const int N = 5; 
+    char str[N]; 
+    cout << "Nhập chuỗi (độ dài nhỏ hơn, bằng hoặc lớn hơn " << N << " ký tự): ";
+    cin >> str;
+
+    cout << "Chuỗi sau khi nhập: _" << str << "_" << endl;
+
+    return 0;
+}
+
+Input: abc
+Output: _abc_
+Input: abcd
+Output _abcd_
+Input: abcde
+output: _abcd_
