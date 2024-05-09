@@ -1,0 +1,60 @@
+A)
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+      const int N = 5;
+      char arr[N];
+      char var1, var2, var3, var4, var5;
+  
+  
+      for (int i = 0; i < N; ++i) {
+          arr[i] = 'A' + i;
+      }
+      var1 = 'F';
+      var2 = 'G';
+      var3 = 'H';
+      var4 = 'L';
+      var5 = 'M';
+  
+      cout << "Giá trị các phần tử mảng có chỉ số ra ngoài mảng:" << endl;
+      cout << "arr[-1]: " << arr[-1] << endl;
+      cout << "arr[N]: " << arr[N] << endl;
+      cout << "arr[N+1]: " << arr[N+1] << endl;
+  
+      cout << "Giá trị các biến:" << endl;
+      cout << "var1: " << var1 << endl;
+      cout << "var2: " << var2 << endl;
+      cout << "var3: " << var3 << endl;
+      cout << "var4: " << var4 << endl;
+      cout << "var5: " << var5 << endl;
+  
+      return 0;
+  }
+
+C)
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+      const int rows = 3;
+      const int cols = 4;
+      int arr[rows][cols]; 
+      
+      for (int j = 0; j < cols + 2; ++j) {
+          arr[0][j] = j + 1; 
+      }
+      cout << "Mảng sau khi ghi tràn:" << endl;
+      for (int i = 0; i < rows; ++i) {
+          for (int j = 0; j < cols; ++j) {
+              cout << arr[i][j] << " ";
+          }
+          cout << endl;
+      }
+  
+      return 0;
+  }
+thể hiện một điểm quan trọng về cấu trúc vật lý của mảng hai chiều trong bộ nhớ: 
+các phần tử được lưu liên tiếp trong bộ nhớ, theo thứ tự dòng trước cột. 
+Khi truy cập ra ngoài phạm vi cột đã được khai báo, chúng ta sẽ truy cập vào vùng nhớ không liên quan đến mảng, 
+gây ra hiện tượng ghi tràn.
