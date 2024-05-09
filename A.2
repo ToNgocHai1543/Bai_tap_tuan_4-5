@@ -1,0 +1,73 @@
+A)
+  #include <iostream>
+  using namespace std;
+  
+  
+  char s1[6]; 
+  int main() {
+      char s2[6]; 
+      cout << "string ngoài hàm main(): ";
+      for (int i = 0; i < sizeof(s1); ++i) {
+          cout << (int)s1[i] << " ";
+      }
+      cout << endl;
+  
+      cout << "string trong hàm main(): ";
+      for (int i = 0; i < sizeof(s2); ++i) {
+          cout << (int)s2[i] << " ";
+      }
+      cout << endl;
+  
+      // In chuỗi kí tự
+      cout << "string ngoài hàm main(): " << s1 << endl;
+      cout << "string trong hàm main(): " << s2 << endl;
+  
+      return 0;
+  }
+B)
+  #include <iostream>
+  using namespace std;
+  
+  //char s1[3] = "abcd"; // gặp lỗi khi khai báo kích thước;
+  //char s1[4] = "abcd"; // gặp lỗi khi khai báo kích thước;
+  
+  char s1[5] = "abcd";
+  
+  int main() {
+      char s2[5] = "abcd";
+  
+      cout << "string ngoài hàm main(): ";
+      for (int i = 0; i < sizeof(s1); ++i) {
+          cout << s1[i] << " ";
+      }
+      cout << endl;
+  
+      cout << "string trong hàm main(): ";
+      for (int i = 0; i < sizeof(s2); ++i) {
+          cout << s2[i] << " ";
+      }
+      cout << endl;
+  
+      // In chuỗi kí tự
+      cout << "C-string ngoài hàm main(): " << s1 << endl;
+      cout << "C-string trong hàm main(): " << s2 << endl;
+  
+      return 0;
+  }
+
+C)
+  #include <iostream>
+  using namespace std;
+  
+  char s1[] = "abcd";
+  
+  int main() {
+      char s2[] = "abcd";
+  
+      // In kích thước thực của mảng sử dụng hàm sizeof
+      cout << "Kích thước thực của mảng ngoài hàm main(): " << sizeof(s1) << endl;
+      cout << "Kích thước thực của mảng trong hàm main(): " << sizeof(s2) << endl;
+  
+      return 0;
+  }
+==>>>>Mảng kích thước N lưu được string độ dài tối đa N - 1
